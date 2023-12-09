@@ -17,7 +17,7 @@ struct ContentView: View {
             VStack {
                 Text(String(format: "%.2f", managerClass.secondElapsed))
                     .font(.largeTitle)
-                
+                // intial formated time
                 switch managerClass.mode {
                 case .stopped:
                     withAnimation {
@@ -25,6 +25,7 @@ struct ContentView: View {
                             managerClass.start()
                         }
                     }
+                    //create stop button
                 case .running:
                     HStack {
                         withAnimation {
@@ -45,6 +46,7 @@ struct ContentView: View {
                             }
                         }
                     }
+                    //show the 3 options when the app is runnig
                 case .paused:
                     HStack {
                         withAnimation {
@@ -60,13 +62,14 @@ struct ContentView: View {
                         }
                     }
                 }
+                //show 2 options when the app is not running
                 
                 Spacer()
                 
                 
                 List(lapTimings) { lap in
                     Text("\(String(format: "%.2f", lap.lap)) s")
-                }
+                }//show lap timings as list
                 
             }
             .navigationTitle("Stop Watch App")
